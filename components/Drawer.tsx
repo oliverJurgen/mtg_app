@@ -15,9 +15,7 @@ import { useTheme } from "../contexts/ThemeContext";
 const CardDrawer: React.FC<any> = ({ children }) => {
   const [theme] = useTheme();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  //   const btnRef = React.useRef();
 
-  console.log(theme.color[0]);
   return (
     <>
       <Button mt={2} onClick={onOpen}>
@@ -27,9 +25,7 @@ const CardDrawer: React.FC<any> = ({ children }) => {
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        // size={{ base: "full", md: "lg" }}
         size="lg"
-        // finalFocusRef={btnRef}
       >
         <DrawerOverlay />
         <DrawerContent>
