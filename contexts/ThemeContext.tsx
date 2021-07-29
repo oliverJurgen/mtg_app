@@ -8,7 +8,7 @@ const [useContext, ContextProvider] = createContext<any>();
 type Props = {};
 
 const ThemeProvider: React.FC<Props> = ({ children }) => {
-  const [colorTheme, setColorTheme] = React.useState("light");
+  const [colorTheme, setColorTheme] = React.useState("dark");
 
   const currTheme = getTheme(`${colorTheme}`);
   const toggleTheme = () => {
