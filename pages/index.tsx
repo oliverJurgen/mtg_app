@@ -43,9 +43,7 @@ export default function Home({ data }: Props) {
 
   const cards = data?.cards;
 
-  // console.log({ cards });
   const cardIds = cards.map((card: Record<string, any>) => card.id);
-  // console.log(cardIds);
 
   const [currId, setCurrId] = React.useState(cardIds[0]);
 
@@ -54,11 +52,7 @@ export default function Home({ data }: Props) {
     fetcher
   );
 
-  // console.log({ cardData: cardData?.data.card });
   const card = cardData?.data.card;
-  // console.log({ card });
-
-  // if (!cardData) return <CenterSpinner h="100%" />;
 
   const symbolArr = card?.manaCost
     .split("}")
@@ -69,21 +63,14 @@ export default function Home({ data }: Props) {
 
   const [theme, toggleTheme] = useTheme();
 
-  console.log(theme);
 
   return (
-    <Box
-      h="100vh"
-      w="100%"
-      // bg="#484d57"
-      bg={theme.bg[0]}
-    >
+    <Box h="100vh" w="100%" bg={theme.bg[0]}>
       <Box
         maxW={{ base: "90%", md: "80%", lg: "1200px" }}
         h="80vh"
         pt="40px"
         mx="auto"
-        // bg="#484d57"
       >
         <Flex minH="60px" justify="flex-end">
           <Text mr={4}>Change Theme</Text>
@@ -91,10 +78,8 @@ export default function Home({ data }: Props) {
         </Flex>
         <Flex
           minW="100%"
-          // bg="#2d2f36"
           bg={theme.bg[1]}
           h="100%"
-          // textColor="white"
           flexDir={{ base: "column", lg: "row" }}
           align={{ base: "center", lg: "initial" }}
           overflowY={{ base: "scroll", lg: "hidden" }}
@@ -104,9 +89,10 @@ export default function Home({ data }: Props) {
             align="center"
             minW={{ base: "54%", lg: "420px" }}
             my={{ base: "20px", lg: "initial" }}
-            minH={{base: "450px", lg: "350px"}}
+            minH={{ base: "450px", lg: "350px" }}
             d={{ base: "none", md: "flex" }}
             p={4}
+            textColor="#fff"
           >
             {!cardData ? (
               <CircularProgress isIndeterminate color="black" />
@@ -142,14 +128,7 @@ export default function Home({ data }: Props) {
                   ))}
                 </Text>
               </Flex>
-              <Flex
-                // textColor="black"
-                d={{ base: "block", md: "none" }}
-                // justify="center"
-                // align="center"
-                mx="auto"
-                // mt={12}
-              >
+              <Flex d={{ base: "block", md: "none" }} mx="auto">
                 <CardDrawer>
                   <Image src={card.imageUrl} alt="Card Image" minW="80%" />
                 </CardDrawer>
@@ -182,7 +161,6 @@ export default function Home({ data }: Props) {
                 minH="200px"
                 maxW="90%"
                 mx="auto"
-                // ml="8%"
                 flexDir="column"
                 fontSize="20px"
               >
